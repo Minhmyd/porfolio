@@ -1,0 +1,174 @@
+*{
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+    /* giảm content bên trong để phù hợp */
+}
+/* dấu "*" chỉ tất cả các thẻ */
+
+body{
+    background: linear-gradient(135deg, #101010, #1d0030);
+    min-height: 100vh;
+    /* ý là cho màu full màn hình */
+    color: white;
+
+}
+    
+.container{
+    max-width: 1200px;
+    /* Chiều rộng tối đa của phần tử không được vượt quá 1200 pixel, nhưng nếu không gian nhỏ hơn thì phần tử có thể co lại */
+    margin: 0 auto;
+    /* auto tự canh chỉnh trái và phải cho đều */
+    padding: 20px;
+}
+
+header{
+    /* background-color: red;  */
+    display: flex;
+    /* đem các phần tử trong thẻ header lên cùng 1 hàng */
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.logo{
+    font-size: 40px;
+    font-weight: 800px;
+    /* khiễn chữ dày hơn */
+    background: linear-gradient(to right, #9932CC, #FF69B4);
+
+    background-clip: text;
+    color: transparent;
+    /* 2 thẻ trên sẽ giúp chữ có màu nếu ko có thì chữ ko có màu và màu sẽ có ở background */
+
+}
+
+nav ul{
+    display: flex;
+    gap: 25px;
+    /* cách các phần tử xa nhau theo gap */
+    list-style: none;
+    /* "list-style: none;" ẩn cái dấm chấm của thẻ ul */
+}
+
+/* tất cả thẻ a có cha là nav */
+nav a{
+    text-decoration: none;
+    /* mất dấu gạch dưới trong thẻ a */
+    color: white;
+}
+
+.button{
+    background-color: yellow;
+    padding: 10px 20px;
+    border-radius: 50px;
+    /* bo tron cái thẻ chứa button */
+
+    border: none;
+    outline: none;
+    /* có nghĩa là loại bỏ viền của phần tử — cả viền thật (border) và viền nét đứt khi focus (outline) */
+}
+
+/* trang trí thẻ main */
+
+main{
+    display: flex;
+    width: 100%;
+    height: fit-content;
+    /* tìm hiểu fit-content */
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 10px;
+}
+
+.content {
+    width: 50%;
+    /* background-color: pink; */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.content > h1{
+    font-size: 38px;
+    font-weight: 1000;
+}
+
+.content > h1 >span{
+    background: linear-gradient(to right, #9932CC, #FF69B4);
+    background-clip: text;
+    color: transparent
+}
+
+/* tìm hiểu Pseudo */
+.content > p:nth-of-type(1){
+    font-size: 25px;
+    color: rgb(193, 189, 189);
+
+}
+
+.content > p:nth-of-type(2){
+    font-size: 16px;
+    color: rgb(193, 189, 189);
+}
+
+.btn-wraper > .btn--start:hover{
+    transform: translateY(-5px);
+    transition: all 0.25s ease-in;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.box-img{
+    width: 50%;
+    /* background-color: orange; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-wraper {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.btn-wraper > .btn--read {
+    color: white;
+    padding: 12px 25px;
+    background-color: transparent;
+    border-radius: 25px;
+    outline: none;
+    border: 1px #9932CC solid;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-wraper > .btn--read::before{
+    content: "";
+    position: absolute;
+    background-color: #8a2be2;
+    width: 0;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transition: all 0.3s ease;
+    z-index: -1 ;
+}
+
+.btn-wraper > .btn--read:hover{
+    color: white;
+}
+
+.btn-wraper > .btn--read:hover::before  {
+    width: 100%;
+}
+
+
+
+.box-img > img{
+    max-width: 100%;
+    object-fit: contain;
+    /* khi màn hình nhỏ lại sẽ ko khiến content và img bị bể  */
+}
+
