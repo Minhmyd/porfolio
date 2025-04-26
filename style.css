@@ -1,3 +1,4 @@
+/* ------------------------------reset CSS--------------------- */
 *{
     margin: 0;
     padding: 0;
@@ -12,7 +13,15 @@ body{
     min-height: 100vh;
     /* ý là cho màu full màn hình */
     color: white;
+    font-family: "Whisper", cursive;
 
+}
+
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
 }
     
 .container{
@@ -22,6 +31,11 @@ body{
     /* auto tự canh chỉnh trái và phải cho đều */
     padding: 20px;
 }
+
+
+
+
+/* ----------------------------Header---------------------------- */
 
 header{
     /* background-color: red;  */
@@ -60,7 +74,7 @@ nav a{
 }
 
 .button{
-    background-color: yellow;
+    background-color: red;
     padding: 10px 20px;
     border-radius: 50px;
     /* bo tron cái thẻ chứa button */
@@ -68,107 +82,238 @@ nav a{
     border: none;
     outline: none;
     /* có nghĩa là loại bỏ viền của phần tử — cả viền thật (border) và viền nét đứt khi focus (outline) */
+    color: white;
+    cursor: pointer;
+    /* khi di chuyển chuột vào thì sẽ hiện bàn tay */
+    transition: all 0.3s ease;
+
 }
 
-/* trang trí thẻ main */
+.bar {
+    font-size: 30px;
+    color: #6f07b4;
+    cursor: pointer;
+}
 
-main{
+/* ------------------------------Main---------------------------- */
+
+main {
     display: flex;
-    width: 100%;
-    height: fit-content;
-    /* tìm hiểu fit-content */
-    justify-content: center;
-    align-items: flex-start;
-    margin-top: 10px;
+    justify-content: space-between;
+    align-items: center;
+    margin: 40px;
 }
 
 .content {
-    width: 50%;
-    /* background-color: pink; */
     display: flex;
     flex-direction: column;
     gap: 20px;
-}
 
-.content > h1{
-    font-size: 38px;
-    font-weight: 1000;
 }
-
-.content > h1 >span{
+.content h1 {
+    font-size: 65px;
+}
+.content h1 span {
     background: linear-gradient(to right, #9932CC, #FF69B4);
+
     background-clip: text;
-    color: transparent
+    color: transparent;
 }
 
-/* tìm hiểu Pseudo */
-.content > p:nth-of-type(1){
+.content p:nth-of-type(1) {
+    color: rgb(200, 182, 226);
+    font-size: 30px;
+    
+    
+}
+
+.content p:nth-of-type(2) {
+    color: rgb(168, 167, 168);
     font-size: 25px;
-    color: rgb(193, 189, 189);
-
 }
 
-.content > p:nth-of-type(2){
-    font-size: 16px;
-    color: rgb(193, 189, 189);
-}
-
-.btn-wraper > .btn--start:hover{
-    transform: translateY(-5px);
-    transition: all 0.25s ease-in;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-}
-
-.box-img{
-    width: 50%;
-    /* background-color: orange; */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.btn-wraper {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-}
-
-.btn-wraper > .btn--read {
+.readMore {
     color: white;
-    padding: 12px 25px;
-    background-color: transparent;
-    border-radius: 25px;
-    outline: none;
-    border: 1px #9932CC solid;
+    background: transparent;
+    border: 1px solid #6f07b4;
     position: relative;
+    z-index: 1;
     overflow: hidden;
 }
 
-.btn-wraper > .btn--read::before{
+.start:hover {
+    /* transform: scale(1.05); : phóng to ra  */
+    /* transform: rotate(5deg); : xoay  */
+    /* transform: skew(-5deg); : nghiêng nhẹ */
+    transform: matrix(-5deg);
+    box-shadow: 2px 3px 9px 0 white;
+    
+}
+
+.readMore::before {
     content: "";
     position: absolute;
-    background-color: #8a2be2;
-    width: 0;
+    background: red;
+    width: 0%;
     height: 100%;
     top: 0;
     left: 0;
-    transition: all 0.3s ease;
-    z-index: -1 ;
+    transition: all 0.3s;
+    z-index: -1;
+
 }
 
-.btn-wraper > .btn--read:hover{
-    color: white;
-}
-
-.btn-wraper > .btn--read:hover::before  {
+ .readMore:hover::before {
     width: 100%;
+} 
+
+.banga {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.khunga {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  width: 250px;
+  height: 150px;
+
+}
+
+.fa-palette {
+    font-size: 30px;
+    background-color: yellow;
+    background-clip: text;
+    color: transparent;
+    padding: 15px 20px;
+    transition: all 0.5s ease;
+    
+    
+    
+}
+
+.fa-palette:hover {
+    transform: rotate(360deg);
+}
+
+.thietke {
+    padding-left: 20px;
+    padding-bottom: 10px;
+}
+.chu {
+    font-size: 15px;
+    padding-left: 20px;
+    color: rgb(168, 167, 168);
 }
 
 
 
-.box-img > img{
-    max-width: 100%;
-    object-fit: contain;
-    /* khi màn hình nhỏ lại sẽ ko khiến content và img bị bể  */
+.khungb {
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+  
+  border-radius: 20px;
+  
+  
+  width: 250px;
+  height: 150px;
+  
+    
 }
 
+.fa-code {
+     background-color: yellow;
+     background-clip: text;
+     color: transparent;
+     font-size: 30px;
+     padding: 15px 20px;
+     transition: all 0.5s ease;
+     border-radius: 20px;
+}
+
+.fa-code:hover {
+    transform: rotate(360deg);
+}
+
+.code {
+    padding: 5px 15px;
+}
+
+.note {
+    padding-left: 15px;
+}
+
+.khungc {
+    background: rgba(255, 255, 255, 0.05);
+    width: 530px;
+    height: 150px;
+    border-radius: 20px;
+}
+
+.fa-users {
+    padding: 15px 20px;
+    transition: all 0.5s ease;
+    background-color: yellow;
+    background-clip: text;
+    color: transparent;
+    font-size: 30px;
+
+}
+.fa-users:hover {
+    transform: rotate(360deg);
+}
+
+.group {
+    padding: 5px 20px;
+}
+
+.member{
+    padding: 5px 20px;
+}
+
+/* @media olly screen and ( max-with: 900px) {
+    main {
+        display : none;
+    }
+ 
+} */
+
+@media (max-width: 900px) {
+    .container header nav,
+    .container header .button {
+        display: none;
+    }
+
+    .bar {
+        display: block;
+    }
+
+    main {
+        flex-wrap: wrap-reverse;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .content {
+        justify-content: center;
+        align-items: center;
+    }
+
+     
+    
+}
+
+@media (max-width: 510px){
+    .content h1 {
+        white-space: nowrap;
+    }
+
+    .image_container img {
+        width: 350px;
+        height: 500px;
+    }
+
+}
